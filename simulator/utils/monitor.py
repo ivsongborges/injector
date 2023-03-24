@@ -13,15 +13,18 @@ class Monitor:
                 +  self.ip_address \
                 + " | grep received | awk '{print $4}'"
             output = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE).stdout.read().rstrip()
-
-            if output=='0':
+            
+            if output.decode('UTF-8')=='0':
                 with open(self.file_name, "a") as myfile:
                     print("\n[MONITOR] system is DOWN")
                     myfile.write("DOWN" + "\n")
 
-            elif output!='0':
+            elif output.decode('UTF-8')=='1':
                 with open(self.file_name, "a") as myfile:
                     print("\n[MONITOR] system is UP")
                     myfile.write("UP" + "\n")
+
+            else:
+                print("output is not known")
 
             sleep(self.interval)

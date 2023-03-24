@@ -5,7 +5,7 @@ from utils.monitor import Monitor
 from utils.component import Component
 
 # Fault injection
-IP_ADDRESS = "172.16.80.1"
+IP_ADDRESS = "172.1.6.224"
 PASSWORD = "adfadf"
 NETWORK_INTERFACE = "wlan0"
 
